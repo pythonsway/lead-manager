@@ -52,7 +52,7 @@ class ResetPasswordAPI(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data
 
-        subject = '[Lead Manager] Ppassword reset'
+        subject = '[Lead Manager] Password reset'
         html_message = render_to_string('accounts/password_reset_email.html', {'email': user.email})
         plain_message = strip_tags(html_message)
         from_email = 'Lead Manager <noreply@leadmanagernotrealemail.com>'
